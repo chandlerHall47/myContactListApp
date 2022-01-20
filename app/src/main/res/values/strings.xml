@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Contact List</string>
+    <string name="button_to_display_a_list_of_contacts">Button to display a list of contacts</string>
+    <string name="button_to_display_map_of_contacts">Button to display map of contacts</string>
+    <string name="button_to_display_settings">Button to display settings</string>
+    <string name="toggleButton">ToggleButton</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="contact">Contact</string>
+    <string name="address">Address</string>
+    <string name="enter_street_address">Enter Street Address</string>
+</resources>
