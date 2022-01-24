@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:gravity="end">
+    android:gravity="center"
+    android:orientation="vertical">
+
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cancel"
-            android:textColor="@color/dialog_button_color"/>
+            android:textColor="@color/dialog_button_color" />
 
         <Button
             android:id="@+id/buttonSelect"
@@ -32,6 +33,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Select"
-            android:textColor="@color/dialog_button_color"/>
+            android:textColor="@color/dialog_button_color" />
     </LinearLayout>
 </LinearLayout>

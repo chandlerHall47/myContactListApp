@@ -19,31 +19,31 @@
         <ImageButton
             android:id="@+id/imageButtonList"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_a_list_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_agenda"
+            app:srcCompat="@drawable/contactlist_icon"
             tools:ignore="RedundantDescriptionCheck" />
 
         <ImageButton
             android:id="@+id/imageButtonMap"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_map_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_mapmode"
+            app:srcCompat="@drawable/mapicon"
             tools:ignore="RedundantDescriptionCheck" />
 
         <ImageButton
             android:id="@+id/imageButtonSettings"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_settings"
-            app:srcCompat="@android:drawable/ic_menu_manage"
+            app:srcCompat="@drawable/settingsicon"
             tools:ignore="RedundantDescriptionCheck" />
     </LinearLayout>
 
