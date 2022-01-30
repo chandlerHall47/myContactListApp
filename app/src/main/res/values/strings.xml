@@ -16,4 +16,10 @@
     <string name="cell_phone">Cell Phone:</string>
     <string name="email_address">Email Address:</string>
     <string name="birthday">Birthday:</string>
+    <string name="_01_01_1970">01/01/1970</string>
+    <string name="change">Change</string>
+    <string name="sort">Sort Contacts By:</string>
+    <string name="sort_order">Sort Order:</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
 </resources>
