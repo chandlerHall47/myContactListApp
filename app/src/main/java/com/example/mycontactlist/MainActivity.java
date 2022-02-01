@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
 
             @Override
             public void afterTextChanged(Editable s) {
-                currentContact.setCity(etCity.getText().toString());
+                currentContact.setState(etState.getText().toString());
             }
         });
 
