@@ -14,12 +14,28 @@ import java.util.ArrayList;
 
 public class ContactListActivity extends AppCompatActivity {
 
+
+    private View.OnClickListener onItemClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder)
+            view.getTag();
+            int position = viewHolder.getAdapterPosition();
+            Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
+    };
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_list);
         initMapButton();
         initSettingsButton();
+
+        //Add code from professors pic somewhere here
+
 
         ContactDataSource ds = new ContactDataSource(this);
         ArrayList<String> names;
