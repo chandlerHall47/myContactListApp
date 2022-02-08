@@ -129,13 +129,12 @@ public ArrayList<String> getContactName(){
 
 
 
-//This method returns
-private ArrayList<Contact> getContacts(){
+public ArrayList<Contact> getContacts(String sortField, String sortOrder){
 
         ArrayList<Contact> contacts = new ArrayList<>();
 
         try{
-            String query = "SELECT * FROM contact";
+            String query = " SELECT * FROM contact ORDER BY " + sortField + " " + sortOrder;
             Cursor cursor = database.rawQuery(query,null);
 
             Contact newContact;
@@ -162,6 +161,46 @@ private ArrayList<Contact> getContacts(){
             contacts = new ArrayList<>();
         }
         return contacts;
+}
+
+
+public Contact getSpecificContact(int contactID){
+
+        Contact contact = new Contact();
+
+        String query = "SELECT * FROM contact WHERE _id = " + contactID;
+        Cursor cursor = database.rawQuery(query, null);
+
+
+        if(cursor.moveToFirst()) {
+            contact.setContactID(cursor.getInt(0));
+            contact.setContactName(cursor.getString(1));
+            contact.setStreetaddress(cursor.getString(2));
+            contact.setCity(cursor.getString(3));
+            contact.setState(cursor.getString(4));
+            contact.setZipcode(cursor.getString(5));
+
+            contact.setPhoneNumber(cursor.getString(6));
+            contact.setCellNumber(cursor.getString(7));
+            contact.seteMail(cursor.getString(8));
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(Long.valueOf(cursor.getString(9)));
+            contact.setBirthday(calendar);
+
+            cursor.close();
+        }
+        return contact;
+}
+
+
+public boolean deleteContact(int contactID){
+        boolean didDelete = false;
+        try{
+            didDelete = database.delete("contact", "_id = " + contactID, null) > 0;
+        } catch (Exception e){
+
+        }
+        return didDelete;
 }
 
 
