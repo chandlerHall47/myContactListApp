@@ -164,11 +164,11 @@ public ArrayList<Contact> getContacts(String sortField, String sortOrder){
 }
 
 
-public Contact getSpecificContact(int contactID){
+public Contact getSpecificContact(int contactId){
 
         Contact contact = new Contact();
 
-        String query = "SELECT * FROM contact WHERE _id = " + contactID;
+        String query = "SELECT * FROM contact WHERE _id = " + contactId;
         Cursor cursor = database.rawQuery(query, null);
 
 
@@ -193,12 +193,12 @@ public Contact getSpecificContact(int contactID){
 }
 
 
-public boolean deleteContact(int contactID){
+public boolean deleteContact(int contactId){
         boolean didDelete = false;
         try{
-            didDelete = database.delete("contact", "_id = " + contactID, null) > 0;
+            didDelete = database.delete("contact", " _id= " + contactId ,null) > 0;
         } catch (Exception e){
-
+                //Does nothing
         }
         return didDelete;
 }

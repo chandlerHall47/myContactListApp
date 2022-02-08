@@ -1,9 +1,12 @@
 package com.example.mycontactlist;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.SwitchCompat$InspectionCompanion;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,9 +20,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ContactListActivity extends AppCompatActivity {
-    public ArrayList<Contact> contacts;
-    ContactAdapter contactAdapter = new ContactAdapter(contacts);
-
+    RecyclerView contactList;
+    ContactAdapter contactAdapter;
+    ArrayList<Contact> contacts;
 
 
 
@@ -28,9 +31,9 @@ public class ContactListActivity extends AppCompatActivity {
         public void onClick(View view) {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            int contactID = contacts.get(position).getContactID();
+            int contactId = contacts.get(position).getContactID();
             Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
-            intent.putExtra("contactID", contactID);
+            intent.putExtra("contactId", contactId);
             startActivity(intent);
         }
     };
@@ -43,6 +46,7 @@ public class ContactListActivity extends AppCompatActivity {
         initMapButton();
         initSettingsButton();
         initListButton();
+
         initAddContactButton();
         initDeleteSwitch();
 
@@ -69,7 +73,7 @@ public class ContactListActivity extends AppCompatActivity {
 
             if (contacts.size() > 0) {
                 RecyclerView contactList = findViewById(R.id.rvContacts);
-                ContactAdapter contactAdapter = new ContactAdapter(contacts);
+                contactAdapter = new ContactAdapter(contacts, this);
                 contactAdapter.setOnItemClickListener(onItemClickListener);
                 RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
                 contactList.setLayoutManager(layoutManager);
@@ -97,6 +101,8 @@ public class ContactListActivity extends AppCompatActivity {
             }
         });
     }
+
+
     private void initSettingsButton(){
         ImageButton ibSettings = findViewById(R.id.imageButtonSettings);
         ibSettings.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +114,7 @@ public class ContactListActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void initListButton(){
         ImageButton ibList = findViewById(R.id.imageButtonList);
@@ -124,6 +131,7 @@ public class ContactListActivity extends AppCompatActivity {
 
     }
 
+
     private void initAddContactButton(){
         Button newContact = findViewById(R.id.buttonAddContact);
         newContact.setOnClickListener(new View.OnClickListener() {
@@ -136,19 +144,18 @@ public class ContactListActivity extends AppCompatActivity {
     }
 
 
+
     private void initDeleteSwitch(){
-        Switch s = findViewById(R.id.switchDelete);
+       Switch s = findViewById(R.id.switchDelete);
+
         s.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                Boolean status = compoundButton.isChecked();
+                boolean status = compoundButton.isChecked();
                 contactAdapter.setDelete(status);
                 contactAdapter.notifyDataSetChanged();
             }
         });
     }
-
-
-
 
 }
