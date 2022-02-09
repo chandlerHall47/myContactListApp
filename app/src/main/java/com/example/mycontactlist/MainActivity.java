@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initListButton();
-        initMapButton();
-        initSettingsButton();
+
 
         Bundle extras = getIntent().getExtras();
         if(extras != null){
@@ -54,6 +52,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         currentContact = new Contact();
         initTextChangedEvents();
         initSaveButton();
+        initListButton();
+        initMapButton();
+        initSettingsButton();
     }
 
 
@@ -393,12 +394,12 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
 //Populates the main activity by retrieving the data in the database.
-    private void initContact(int ID){
+    private void initContact(int id){
 
         ContactDataSource ds = new ContactDataSource(MainActivity.this);
         try{
             ds.open();
-            currentContact = ds.getSpecificContact(ID);
+            currentContact = ds.getSpecificContact(id);
             ds.close();
         }
         catch (Exception e){
