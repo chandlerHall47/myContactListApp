@@ -19,31 +19,31 @@
         <ImageButton
             android:id="@+id/imageButtonList"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_a_list_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_agenda"
+            app:srcCompat="@drawable/contactlist_icon"
             tools:ignore="RedundantDescriptionCheck" />
 
         <ImageButton
             android:id="@+id/imageButtonMap"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_map_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_mapmode"
+            app:srcCompat="@drawable/mapicon"
             tools:ignore="RedundantDescriptionCheck" />
 
         <ImageButton
             android:id="@+id/imageButtonSettings"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_settings"
-            app:srcCompat="@android:drawable/ic_menu_manage"
+            app:srcCompat="@drawable/settingsicon"
             tools:ignore="RedundantDescriptionCheck" />
     </LinearLayout>
 
@@ -104,11 +104,12 @@
                 android:ems="14"
                 android:hint="@string/name"
                 android:imeOptions="actionNext"
-                android:inputType="textPersonName"
+                android:inputType="textCapWords"
                 android:minHeight="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textContact"
-                tools:ignore="TextContrastCheck">
+                tools:ignore="TextContrastCheck"
+                android:importantForAutofill="no">
 
                 <requestFocus />
             </EditText>
@@ -127,7 +128,7 @@
                 android:id="@+id/textContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/contact"
                 app:layout_constraintStart_toStartOf="parent"
@@ -145,9 +146,173 @@
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textAddress"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck">
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
+                android:importantForAutofill="no">
 
             </EditText>
+
+            <EditText
+                android:id="@+id/editCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="9"
+                android:hint="@string/city"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                android:nextFocusDown="@id/editState"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editAddress"
+                android:importantForAutofill="no" />
+
+            <EditText
+                android:id="@+id/editState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:ems="2"
+                android:hint="@string/state"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:maxLength="2"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:nextFocusDown="@id/editZipcode"
+                app:layout_constraintStart_toEndOf="@+id/editCity"
+                app:layout_constraintTop_toBottomOf="@+id/editAddress"
+                tools:ignore="TextContrastCheck" />
+
+            <EditText
+                android:id="@+id/editZipcode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:ems="5"
+                android:hint="@string/zipcode"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:maxLength="5"
+                android:nextFocusDown="@id/editHome"
+                android:minHeight="48dp"
+                app:layout_constraintStart_toEndOf="@+id/editState"
+                app:layout_constraintTop_toBottomOf="@+id/editAddress"
+                tools:ignore="TextContrastCheck" />
+
+            <TextView
+                android:id="@+id/textHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/home_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editCity" />
+
+            <EditText
+                android:id="@+id/editHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:ems="8"
+                android:imeOptions="actionNext"
+                android:inputType="phone"
+                android:nextFocusDown="@id/editCell"
+                android:maxLength="14"
+                android:minHeight="48dp"
+                android:text=""
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textHome"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/textCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="104dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/cell_phone"
+                app:layout_constraintStart_toEndOf="@+id/textHome"
+                app:layout_constraintTop_toBottomOf="@+id/editCity" />
+
+            <EditText
+                android:id="@+id/editCell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:ems="8"
+                android:inputType="phone"
+                android:minHeight="48dp"
+                android:maxLength="14"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/editEmail"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@+id/editHome"
+                app:layout_constraintTop_toBottomOf="@+id/textCell"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/textEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/email_address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editHome" />
+
+            <EditText
+                android:id="@+id/editEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="16"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp"
+                android:imeOptions="actionNext"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textEmail"
+                tools:ignore="SpeakableTextPresentCheck"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:id="@+id/textBday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/birthday"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+
+            <TextView
+                android:id="@+id/textBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/_01_01_1970"
+                app:layout_constraintStart_toEndOf="@+id/textBday"
+                app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+
+            <Button
+                android:id="@+id/btnBirthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="60dp"
+                android:text="@string/change"
+                app:layout_constraintBaseline_toBaselineOf="@id/textBirthday"
+                app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

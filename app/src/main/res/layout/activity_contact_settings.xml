@@ -18,29 +18,99 @@
         <ImageButton
             android:id="@+id/imageButtonList"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_a_list_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_agenda" />
+            app:srcCompat="@drawable/contactlist_icon" />
 
         <ImageButton
             android:id="@+id/imageButtonMap"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_map_of_contacts"
-            app:srcCompat="@android:drawable/ic_menu_mapmode" />
+            app:srcCompat="@drawable/mapicon" />
 
         <ImageButton
             android:id="@+id/imageButtonSettings"
             android:layout_width="wrap_content"
-            android:layout_height="66dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/navbar_background"
             android:contentDescription="@string/button_to_display_settings"
-            app:srcCompat="@android:drawable/ic_menu_manage" />
+            app:srcCompat="@drawable/settingsicon" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sort"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSortBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
+
+        <RadioButton
+            android:id="@+id/radioName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name" />
+
+        <RadioButton
+            android:id="@+id/radioCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/city" />
+
+        <RadioButton
+            android:id="@+id/radioBirthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/sort_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupSortBy" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupSortOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <RadioButton
+            android:id="@+id/radioAscending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ascending" />
+
+        <RadioButton
+            android:id="@+id/radioDescending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descending" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
