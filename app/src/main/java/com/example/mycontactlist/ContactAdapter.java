@@ -78,7 +78,7 @@ public class ContactAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
         ContactViewHolder cvh = (ContactViewHolder) holder;
 
-        //Changed the position to get the holder position.
+
         cvh.getContactTextView().setText(contactData.get(position).getContactName());
         cvh.getPhoneTextView().setText(contactData.get(position).getPhoneNumber());
 
@@ -87,7 +87,7 @@ public class ContactAdapter extends RecyclerView.Adapter {
                 cvh.getDeleteButton().setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //Changed the position to get the holder position.
+
                         deleteItem(position);
                     }
                 });

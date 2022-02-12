@@ -23,8 +23,6 @@ public class ContactDataSource {
         database = dbHelper.getWritableDatabase();
     }
 
-
-
     public void close(){
         dbHelper.close();
     }
@@ -132,6 +130,8 @@ public ArrayList<String> getContactName(){
 public ArrayList<Contact> getContacts(String sortField, String sortOrder){
 
         ArrayList<Contact> contacts = new ArrayList<>();
+
+
 
         try{
             String query = " SELECT * FROM contact ORDER BY " + sortField + " " + sortOrder;

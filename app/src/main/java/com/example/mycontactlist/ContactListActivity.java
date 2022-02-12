@@ -20,7 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class ContactListActivity extends AppCompatActivity {
-    RecyclerView contactList;
+
     ContactAdapter contactAdapter;
     ArrayList<Contact> contacts;
 
@@ -31,9 +31,9 @@ public class ContactListActivity extends AppCompatActivity {
         public void onClick(View view) {
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            int contactID = contacts.get(position).getContactID();
+            int contactId = contacts.get(position).getContactID();
             Intent intent = new Intent(ContactListActivity.this, MainActivity.class);
-            intent.putExtra("contactID", contactID);
+            intent.putExtra("contactID", contactId);
             startActivity(intent);
         }
     };

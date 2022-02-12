@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         setForEditing(false);
         initToggleButton();
         initChangeDateButton();
-        currentContact = new Contact();
         initTextChangedEvents();
         initSaveButton();
         initListButton();
@@ -401,6 +400,9 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
             ds.open();
             currentContact = ds.getSpecificContact(id);
             ds.close();
+
+
+
         }
         catch (Exception e){
             Toast.makeText(this, "Load Contact Failed", Toast.LENGTH_LONG).show();
