@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -104,12 +105,12 @@
                 android:ems="14"
                 android:hint="@string/name"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
                 android:inputType="textCapWords"
                 android:minHeight="48dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textContact"
-                tools:ignore="TextContrastCheck"
-                android:importantForAutofill="no">
+                tools:ignore="TextContrastCheck">
 
                 <requestFocus />
             </EditText>
@@ -143,11 +144,11 @@
                 android:ems="16"
                 android:hint="@string/enter_street_address"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textAddress"
-                tools:ignore="TextContrastCheck,TouchTargetSizeCheck"
-                android:importantForAutofill="no">
+                tools:ignore="TextContrastCheck,TouchTargetSizeCheck">
 
             </EditText>
 
@@ -160,12 +161,12 @@
                 android:ems="9"
                 android:hint="@string/city"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
                 android:inputType="textCapWords"
-                android:nextFocusDown="@id/editState"
                 android:minHeight="48dp"
+                android:nextFocusDown="@id/editState"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editAddress"
-                android:importantForAutofill="no" />
+                app:layout_constraintTop_toBottomOf="@+id/editAddress" />
 
             <EditText
                 android:id="@+id/editState"
@@ -198,8 +199,8 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="5"
-                android:nextFocusDown="@id/editHome"
                 android:minHeight="48dp"
+                android:nextFocusDown="@id/editHome"
                 app:layout_constraintStart_toEndOf="@+id/editState"
                 app:layout_constraintTop_toBottomOf="@+id/editAddress"
                 tools:ignore="TextContrastCheck" />
@@ -222,15 +223,15 @@
                 android:layout_marginTop="16dp"
                 android:ems="8"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
                 android:inputType="phone"
-                android:nextFocusDown="@id/editCell"
                 android:maxLength="14"
                 android:minHeight="48dp"
+                android:nextFocusDown="@id/editCell"
                 android:text=""
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textHome"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textCell"
@@ -249,16 +250,16 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="16dp"
                 android:ems="8"
-                android:inputType="phone"
-                android:minHeight="48dp"
-                android:maxLength="14"
                 android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="phone"
+                android:maxLength="14"
+                android:minHeight="48dp"
                 android:nextFocusDown="@id/editEmail"
                 android:text=""
                 app:layout_constraintStart_toEndOf="@+id/editHome"
                 app:layout_constraintTop_toBottomOf="@+id/textCell"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textEmail"
@@ -277,13 +278,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="16"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:minHeight="48dp"
-                android:imeOptions="actionNext"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textEmail"
-                tools:ignore="SpeakableTextPresentCheck"
-                android:importantForAutofill="no" />
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textBday"

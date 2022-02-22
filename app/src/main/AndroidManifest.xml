@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
 
     <application
         android:allowBackup="true"
@@ -21,6 +23,7 @@
         android:roundIcon="@mipmap/contactlist_launch_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyContactList"
+
 
 
         >
